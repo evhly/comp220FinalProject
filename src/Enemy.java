@@ -11,6 +11,9 @@ public class Enemy extends Character {
     }
 
     public Item dropItem(){
+        if (this.isDead()){
+
+        }
         return null;
     }
 

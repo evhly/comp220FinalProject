@@ -15,7 +15,7 @@ public class Hero extends Character {
         super(h);
         name = n;
         strength = s;
-         baseStrength = bs;
+        baseStrength = bs;
         //give hero one weapon and one potion to start - health is a potion
     }
 
