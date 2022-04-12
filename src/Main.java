@@ -1,4 +1,5 @@
 public class Main {
+
     public static Hero createHero(){
         return null;
     }
