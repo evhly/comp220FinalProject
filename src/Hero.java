@@ -36,5 +36,6 @@ public class Hero extends Character {
     public String printStats() {
         //print list of weapons and potions
        return "weapons: " + weapons + '\n' + "potions: " + potions;
+
     }
 }
