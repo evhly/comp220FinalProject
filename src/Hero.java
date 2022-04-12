@@ -25,7 +25,6 @@ public class Hero extends Character {
     }
 
     public void heal(int h){
-
         //super...
     }
 
