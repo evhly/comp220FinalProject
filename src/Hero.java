@@ -40,10 +40,17 @@ public class Hero extends Character {
      * @param h = the amount of health added
      */
     public void heal(int h){
-        //super...
+        super.health += h;
     }
 
-    //add strength
+    /**
+     * enhances the hero's strength
+     * @param s = the amount of strength added
+     */
+    public void addStrength(int s){
+        strength += s;
+    }
+
     //reset to base
 
     /**
