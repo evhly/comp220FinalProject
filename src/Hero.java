@@ -1,15 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class Hero extends Character {
-    private Set<Weapon> weapons; //weapons must be unique, so set
+    private ArrayList<Weapon> weapons; //weapons must be unique, so set
     private Map<Potion,Integer> potions; //key, value  potion, number of that kind
     // healthPotion, 5   means 5 health potions
     private String name;
     private int baseStrength;
     private int strength;
-    private ArrayList<Item> items;
+   // private ArrayList<Item> items;
 
     /**
      * constructor
@@ -23,17 +24,24 @@ public class Hero extends Character {
         name = n;
         strength = s;
         baseStrength = bs;
+        weapons = new ArrayList<>();
+        potions = new HashMap<>();
         //give hero one weapon and one potion to start - health is a potion
     }
+
+    public Weapon getWeapon(int wIndex){
+        return weapons.get(wIndex);
+    }
+
 
     /**
      * this method adds items to the hero's inventory
      * @param i = the item being added.
      */
-    public void addItem(Item i){
-        items.add(i);
-        //if potion, potion, etc.
-    }
+//    public void addItem(Item i){
+//        items.add(i);
+//        //if potion, potion, etc.
+//    }
 
     /**
      * adds health to hero
@@ -53,14 +61,17 @@ public class Hero extends Character {
 
     //reset to base
 
+    public String getName() {
+        return name;
+    }
+
     /**
      * provides an update on the hero's current stats
      * @return string of stats
      */
     @Override
-    public String printStats() {
+    public String getStats() {
         //print list of weapons and potions
-       return "weapons: " + weapons + '\n' + "potions: " + potions;
-
+       return name + "\nhealth: " + super.health + "\nweapons: " + weapons + "\npotions: " + potions;
     }
 }

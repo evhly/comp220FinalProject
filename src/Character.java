@@ -28,5 +28,5 @@ public abstract class Character {
          }
      }
 
-     public abstract String printStats();
+     public abstract String getStats();
 }

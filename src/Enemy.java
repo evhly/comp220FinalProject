@@ -38,7 +38,7 @@ public class Enemy extends Character {
      * @return string of stats
      */
     @Override
-    public String printStats() {
+    public String getStats() {
         return "Enemy:\n"+name+" the "+type+"\n"+"Weapon: "+weapon+"\nHealth remaining: " + health;
     }
 }
