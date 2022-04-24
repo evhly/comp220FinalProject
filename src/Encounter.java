@@ -13,7 +13,6 @@ public class Encounter {
     }
 
     public boolean battle(){
-        //loop
         while(!hero.isDead() || !e1.isDead()){
             System.out.println(hero.getStats());
             System.out.println(e1.getStats());
@@ -24,14 +23,22 @@ public class Encounter {
             if (choice==1){
                 attackEnemy(hero.getWeapon(0)); //Todo ask which weopon
             }
-
-
         }
 
+
+        System.out.println(e1.getName() + " takes attacks.");
+        //hero.takeDamage();   //TODO: update
+        //System.out.println("-"+ damage );
+
+
+        if (hero.isDead()){
+            return false; //if hero dies
+        }
+        else{
+            return true; //return true if enemy dies
+        }
         //ea. loop hero takes a turn (if alive)    - inventory, stats, what would you like to do? (1,2,3)
         //enemy takes a turn (if alive)
-        return false; //if hero dies
-        //return true if enemy dies
     }
 
     private void attackEnemy(Weapon weapon) {

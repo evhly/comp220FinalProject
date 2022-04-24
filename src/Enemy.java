@@ -7,6 +7,14 @@ public class Enemy extends Character {
     private ArrayList<Item> dropList;
     private Weapon weapon;
 
+    public String getName() {
+        return name;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
     /**
      * constructor
      * @param h = health of enemy
