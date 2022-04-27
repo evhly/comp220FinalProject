@@ -16,8 +16,6 @@ public class Potion extends Item {
         // switch on name
        // if (h.equals("health")) {
             h.heal(5);
-
-
     }
 
     //later add a strength potion
