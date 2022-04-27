@@ -11,6 +11,7 @@ public class Hero extends Character {
     private int strength;
     private ArrayList<Item> items;
 
+
     /**
      * constructor
      * @param h = health of hero
@@ -26,6 +27,10 @@ public class Hero extends Character {
         //give hero one weapon and one potion to start - health is a potion
     }
 
+    public String getName() {
+        return name;
+    }
+
     /**
      * this method adds items to the hero's inventory
      * @param i = the item being added.
@@ -39,12 +44,15 @@ public class Hero extends Character {
      * adds health to hero
      * @param h = the amount of health added
      */
-    public void heal(int h){
+    public void takeDamage(int h){
         //super...
-    }
+        super.takeDamage(h);
 
+    }
     //add strength
-    //reset to base
+    //reset to base (What does this do?)
+
+
 
     /**
      * provides an update on the hero's current stats
@@ -54,6 +62,10 @@ public class Hero extends Character {
     public String getStats() {
         //print list of weapons and potions
        return "weapons: " + weapons + '\n' + "potions: " + potions;
+    }
 
+    public Set<Weapon> getWeapon (Weapon w) { // does this seem okay??
+        weapons.add(w);
+        return weapons;
     }
 }
