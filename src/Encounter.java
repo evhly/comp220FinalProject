@@ -9,6 +9,7 @@ public class Encounter {
     private Random rand = new Random();
 
     public Encounter(Hero h){
+        hero = h;
 
     }
 
@@ -64,13 +65,22 @@ public class Encounter {
         return begText;
     }
 
-    public static Encounter firstEncounter(){
+    public static Encounter firstEncounter(Hero h){
+        //public Enemy(int h, String n, String t, Weapon w, ArrayList<Item> dl) {
+//        int health  =
+//                name
+//                type
+//              weapon --- set damage....
+//        Enemy en = new Enemy
+//                return new Encouner(h, e,...)
         return null;
+
     }
 
     public Encounter bossEncounter(){
         return null;
     }
+
 
 
 

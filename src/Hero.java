@@ -1,15 +1,18 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class Hero extends Character {
-    private Set<Weapon> weapons; //weapons must be unique, so set
+    private ArrayList<Weapon> weapons; //weapons must be unique, so set
     private Map<Potion,Integer> potions; //key, value  potion, number of that kind
     // healthPotion, 5   means 5 health potions
     private String name;
     private int baseStrength;
     private int strength;
-    private ArrayList<Item> items;
+    boolean strengthBoost;
+    //private ArrayList<Item> items;
+
 
 
     /**
@@ -19,11 +22,15 @@ public class Hero extends Character {
      * @param s = strength
      * @param bs = base strength
      */
-    public Hero(int h, String n, int s, int bs) {
+    public Hero(int h, String n, int bs) {
         super(h);
         name = n;
-        strength = s;
+        strength = bs;
         baseStrength = bs;
+        potions = new HashMap<>();
+        weapons = new ArrayList<>();
+        strengthBoost = false;
+
         //give hero one weapon and one potion to start - health is a potion
     }
 
@@ -36,19 +43,12 @@ public class Hero extends Character {
      * @param i = the item being added.
      */
     public void addItem(Item i){
-        items.add(i);
-        //if potion, potion, etc.
-    }
-
-    /**
-     * adds health to hero
-     * @param h = the amount of health added
-     */
-    public void takeDamage(int h){
-        //super...
-        super.takeDamage(h);
+        // TODO: check if item is a weapon - if so add to weapons arraylist
+        // can use instanceof eg if (i instanceof Weapon) { ...
+        // if it is a potion, add it to the potions map
 
     }
+
     //add strength
     //reset to base (What does this do?)
 
@@ -61,11 +61,14 @@ public class Hero extends Character {
     @Override
     public String getStats() {
         //print list of weapons and potions
-       return "weapons: " + weapons + '\n' + "potions: " + potions;
+        return name + "\nhealth: " + super.health + "\nweapons: " + weapons + "\npotions: " + potions;
     }
 
-    public Set<Weapon> getWeapon (Weapon w) { // does this seem okay??
-        weapons.add(w);
-        return weapons;
+    public Weapon getWeapon (int index) {
+        return weapons.get(index);
+    }
+
+    public void heal(int addedHealth) {
+        // todo: increase health but not more than maxHealth
     }
 }

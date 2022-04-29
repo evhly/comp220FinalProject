@@ -7,23 +7,24 @@ public class Potion extends Item {
      * @param n = the name of potion
      */
 
-    Map<String, Integer> weaponsEffectiveness;
+   // Map<String, Integer> weaponsEffectiveness; this is class for a single potion
+
+
 
     public Potion(String n) {
         super(n);
     }
 
-    public void weaponEffectiveness () { // if want to assign a number to each weapon type
-        weaponsEffectiveness.put();
-    }
 
     /**
      * this method applies whatever the effect of the potion is to the hero's stats
      * @param h = the hero effected
      */
     public void applyEffectToHero(Hero h){
-        // switch on name
-//       h.getStats(h.getStats() + h)
+
+        // Todo: a series of if statements, one for each potion type
+        // eg if (this.name.equals(health) {  h.heal( ...
+        // if strength --- set hero's strenghtboost to true...
 
 
     }

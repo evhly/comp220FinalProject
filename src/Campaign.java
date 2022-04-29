@@ -15,18 +15,13 @@ public class Campaign {
 
     public void playCampaign(){
         // part 2 -- loop --- while not dead - go to next encounter
-        startNextEncounter();
-    }
-
-    private void startNextEncounter(){
-        Encounter curr = encounters.get(currEncIdx);     // grab current encounter
-        System.out.println(curr.getBegText());      // beg message
-        curr.battle();                        // call battle loop
-        currEncIdx++;                        //inc currencidx
-    }
-
-    public boolean gameComplete(){
-        return false;
+        boolean heroIsAlive = true;
+        while (currEncIdx < encounters.size() && heroIsAlive){
+            Encounter curr = encounters.get(currEncIdx);     // grab current encounter
+            System.out.println(curr.getBegText());      // beg message
+            heroIsAlive= curr.battle();
+            currEncIdx++;
+        }
     }
 
 
