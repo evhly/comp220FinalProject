@@ -8,7 +8,7 @@ public class Campaign {
     public Campaign(Hero h){
         this.h = h;
         encounters = new ArrayList<>();
-        encounters.add(Encounter.firstEncounter());
+        encounters.add(Encounter.firstEncounter(h));
         currEncIdx = 0;
     }
 
