@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,9 +9,10 @@ public class Encounter {
     private Scanner scnr = new Scanner(System.in);
     private Random rand = new Random();
 
-    public Encounter(Hero h){
+    public Encounter(Hero h, Enemy e, String bt){
         hero = h;
-
+        e1 = e;
+        begText = bt;
     }
 
     public boolean battle(){
@@ -19,10 +21,11 @@ public class Encounter {
             System.out.println(e1.getStats());
             System.out.println(hero.getName() + " what do you want to do?");
             System.out.println("Enter 1 to use weapon.");
-            // TODO: make this safe -- check for string...
-            int choice = scnr.nextInt();
-            if (choice==1){
+            int wChoice = scnr.nextInt();
+            if (wChoice == 1){
                 attackEnemy(hero.getWeapon(0)); //Todo ask which weopon
+            }else {
+                System.out.println("ERROR Try again.");
             }
         }
 
@@ -67,13 +70,12 @@ public class Encounter {
 
     public static Encounter firstEncounter(Hero h){
         //public Enemy(int h, String n, String t, Weapon w, ArrayList<Item> dl) {
-//        int health =
-//                name
-//                type
-//              weapon --- set damage....
-//        Enemy en = new Enemy
-//                return new Encouner(h, e,...)
-        return null;
+        Weapon club = new Weapon("club", 24);
+        ArrayList<Item> drp = new ArrayList<>();
+        drp.add(club);
+        Enemy en = new Enemy(12, "Eric", "Toad",club,drp);
+        String begTxt = "Welcome hero! You have encountered an enemy!\n" + "Current Stats:\n";
+        return new Encounter(h, en, begTxt);
 
     }
 

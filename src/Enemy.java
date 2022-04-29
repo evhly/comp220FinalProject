@@ -15,6 +15,10 @@ public class Enemy extends Character {
         return weapon;
     }
 
+    public String getWeaponName() {      //I don't like this
+        return weapon.getName();
+    }
+
     /**
      * constructor
      * @param h = health of enemy
@@ -47,6 +51,6 @@ public class Enemy extends Character {
      */
     @Override
     public String getStats() {
-        return "Enemy:\n"+name+" the "+type+"\n"+"Weapon: "+weapon+"\nHealth remaining: " + health;
+        return "Enemy:\n"+name+" the "+type+"\n"+"Weapon: "+this.getWeaponName()+"\nHealth remaining: " + health + "\n";
     }
 }

@@ -9,4 +9,7 @@ public abstract class Item {
         name = n;
     }
 
+    public String getName() {
+        return name;
+    }
 }

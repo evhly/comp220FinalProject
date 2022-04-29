@@ -2,11 +2,11 @@ public class Weapon extends Item {
     private int maxDamage;
 
     /**
-     * @param n is the type of weapon
+     * @param name is the type of weapon
      * @param md is the maximum damage the weapon deals
      */
-    public Weapon(String n, int md) {
-        super(n);
+    public Weapon(String name, int md) {
+        super(name);
         maxDamage = md;
     }
 
@@ -16,4 +16,5 @@ public class Weapon extends Item {
     public int getMaxDamage() {
         return maxDamage;
     }
+
 }

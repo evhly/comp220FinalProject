@@ -61,7 +61,7 @@ public class Hero extends Character {
     @Override
     public String getStats() {
         //print list of weapons and potions
-        return name + "\nhealth: " + super.health + "\nweapons: " + weapons + "\npotions: " + potions;
+        return "Hero:\n"+ name + "\nHealth remaining: " + super.health + "\nWeapons: " + weapons + "\nPotions: " + potions + "\n";
     }
 
     public Weapon getWeapon (int index) {

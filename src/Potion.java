@@ -29,5 +29,4 @@ public class Potion extends Item {
 
     }
 
-    //later add a strength potion
 }
