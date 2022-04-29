@@ -14,7 +14,7 @@ public class Campaign {
 
 
     public void playCampaign(){
-        // part 2 -- loop --- while not dead - go to next encounter
+        // while not dead, go to next encounter
         boolean heroIsAlive = true;
         while (currEncIdx < encounters.size() && heroIsAlive){
             Encounter curr = encounters.get(currEncIdx);     // grab current encounter
@@ -23,6 +23,5 @@ public class Campaign {
             currEncIdx++;
         }
     }
-
 
 }

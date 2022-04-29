@@ -67,7 +67,7 @@ public class Encounter {
 
     public static Encounter firstEncounter(Hero h){
         //public Enemy(int h, String n, String t, Weapon w, ArrayList<Item> dl) {
-//        int health  =
+//        int health =
 //                name
 //                type
 //              weapon --- set damage....
