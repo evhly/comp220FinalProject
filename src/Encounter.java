@@ -28,7 +28,8 @@ public class Encounter {
             int wChoice = scnr.nextInt();
             // TODO: currently only one option for weapon---
            // if (wChoice == 1){
-            int damage = attack(hero.getWeapon(0)); //Todo ask which weopon
+            //todo add to this number if strength potion is in effect
+            int damage = attack(hero.getWeapon(0).getMaxDamage()); //Todo ask which weopon
            // }
             e1.takeDamage(damage);
             System.out.println("You attacked "+ e1.getName()+" for " + damage + " damage.");
@@ -36,7 +37,7 @@ public class Encounter {
                 System.out.println("Congratulations! You defeated " + e1.getName() + "!");
                 return true;
             }
-            int enemyDamage = attack(e1.getWeapon());
+            int enemyDamage = attack(e1.getWeapon().getMaxDamage());
             hero.takeDamage(enemyDamage);
             System.out.println(e1.getName()+ " attacked "+ hero.getName() + " for " + enemyDamage + " damage.\n");
             if (hero.isDead()){
@@ -48,9 +49,9 @@ public class Encounter {
         return false;
     }
 
-    private int attack(Weapon weapon) {
-        int bound = weapon.getMaxDamage() - (weapon.getMaxDamage()/2); //damage ranges between half and max for that weapon
-        int damage = rand.nextInt(bound) + (weapon.getMaxDamage()/2);
+    private int attack(int maxDmg) {
+        int bound = maxDmg - (maxDmg/2);       //damage ranges between half and max for that weapon
+        int damage = rand.nextInt(bound) + (maxDmg/2);
         return damage;
     }
 

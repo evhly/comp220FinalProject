@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Hero extends Character {
     private ArrayList<Weapon> weapons; //weapons must be unique, so set
-    private Map<Potion,Integer> potions; //key, value  potion, number of that kind
+    private Map<String,Integer> potions; //key, value  potion name, number of that kind
     // healthPotion, 5   means 5 health potions
     private String name;
     private int baseStrength;
@@ -72,4 +72,8 @@ public class Hero extends Character {
     public void heal(int addedHealth) {
         // todo: increase health but not more than maxHealth
     }
+    public void restoreDamage(){
+        //TODO - less than maxHealth
+    }
+
 }
