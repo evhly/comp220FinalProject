@@ -30,6 +30,7 @@ public class Hero extends Character {
         potions = new HashMap<>();
         weapons = new ArrayList<>();
         strengthBoost = false;
+        weapons.add(new Weapon("Wooden Sword", 5));
 
         //give hero one weapon and one potion to start - health is a potion
     }

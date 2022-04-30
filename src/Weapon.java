@@ -17,4 +17,9 @@ public class Weapon extends Item {
         return maxDamage;
     }
 
+    @Override
+    public String toString(){
+        return super.getName();
+    }
+
 }

@@ -7,6 +7,7 @@ public class Main {
         String name;
         System.out.println("Welcome hero!\nWhat is your name?");
         name = scn.next();
+
         return (new Hero(20,name,10));
     }
 

@@ -15,6 +15,10 @@ public class Encounter {
         begText = bt;
     }
 
+    /**
+     *
+     * @return true if hero lives and false if enemy wins
+     */
     public boolean battle(){
         while(!hero.isDead() || !e1.isDead()){
             System.out.println(hero.getStats());
@@ -22,33 +26,32 @@ public class Encounter {
             System.out.println(hero.getName() + " what do you want to do?");
             System.out.println("Enter 1 to use weapon.");
             int wChoice = scnr.nextInt();
-            if (wChoice == 1){
-                attackEnemy(hero.getWeapon(0)); //Todo ask which weopon
-            }else {
-                System.out.println("ERROR Try again.");
+            // TODO: currently only one option for weapon---
+           // if (wChoice == 1){
+            int damage = attack(hero.getWeapon(0)); //Todo ask which weopon
+           // }
+            e1.takeDamage(damage);
+            System.out.println("You attacked "+ e1.getName()+" for " + damage + " damage.");
+            if (e1.isDead()){
+                System.out.println("Congratulations! You defeated " + e1.getName() + "!");
+                return true;
+            }
+            int enemyDamage = attack(e1.getWeapon());
+            hero.takeDamage(enemyDamage);
+            System.out.println(e1.getName()+ " attacked "+ hero.getName() + " for " + enemyDamage + " damage.\n");
+            if (hero.isDead()){
+                System.out.println("You died! Game over!");
+                return false;
             }
         }
-
-
-        System.out.println(e1.getName() + " takes attacks.");
-        //hero.takeDamage();   //TODO: update
-        //System.out.println("-"+ damage );
-
-
-        if (hero.isDead()){
-            return false; //if hero dies
-        }
-        else{
-            return true; //return true if enemy dies
-        }
-        //ea. loop hero takes a turn (if alive)    - inventory, stats, what would you like to do? (1,2,3)
-        //enemy takes a turn (if alive)
+        // following code should not be reachable
+        return false;
     }
 
-    private void attackEnemy(Weapon weapon) {
+    private int attack(Weapon weapon) {
         int bound = weapon.getMaxDamage() - (weapon.getMaxDamage()/2); //damage ranges between half and max for that weapon
         int damage = rand.nextInt(bound) + (weapon.getMaxDamage()/2);
-        e1.takeDamage(damage);
+        return damage;
     }
 
     /**
@@ -70,16 +73,18 @@ public class Encounter {
 
     public static Encounter firstEncounter(Hero h){
         //public Enemy(int h, String n, String t, Weapon w, ArrayList<Item> dl) {
-        Weapon club = new Weapon("club", 24);
+        Weapon club = new Weapon("club", 4);
         ArrayList<Item> drp = new ArrayList<>();
         drp.add(club);
         Enemy en = new Enemy(12, "Eric", "Toad",club,drp);
-        String begTxt = "Welcome hero! You have encountered an enemy!\n" + "Current Stats:\n";
+        String begTxt = "You begin your adventure. \nYou leave your town in search of the great dragon Steve.\n"+
+                "But as you enter the woods you encounter your first enemy, Eric the Toad";
         return new Encounter(h, en, begTxt);
 
     }
 
     public Encounter bossEncounter(){
+        // TODO: create this then call this method from campaign constructor
         return null;
     }
 

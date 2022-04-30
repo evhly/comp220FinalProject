@@ -22,6 +22,9 @@ public class Campaign {
             heroIsAlive= curr.battle();
             currEncIdx++;
         }
+        if(heroIsAlive){
+            System.out.println("Congratulations, you have won!");
+        }
     }
 
 }
